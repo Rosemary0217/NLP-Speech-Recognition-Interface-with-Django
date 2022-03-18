@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>解析结果</title>
+        <base href="/">
+        <link rel="stylesheet" type="text/css" href="..\static\css\testcss.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="logoandslogan">logo</div>
+            <div class="text">
+                <strong><p class="header"> Text: </p></strong>
+                <p> &nbsp &nbsp{{json_dict.text}} </p>
+            </div>
+            <div class="info">
+                <p class="header"> <strong>Mention Data: </strong></p>
+                {% for attribute_name,attribute_value in json_dict.mention_data.0.items %}
+                    <p> ◆{{ attribute_name }}: &nbsp{{ attribute_value }} </p>
+                {% endfor %} 
+            </div>
+            <div class="photo">
+                <p><img src="..\static\images\{{kb_id}}.jpg" width="600" height="450"></p>
+            </div>
+        </div>
+
+    </body>
+</html>
