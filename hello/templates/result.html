@@ -18,11 +18,17 @@
             <div class="info">
                 <p class="header"> <strong>Mention Data: </strong></p>
                 {% for attribute_name,attribute_value in json_dict.mention_data.0.items %}
-                    <p> ◆{{ attribute_name }}: &nbsp{{ attribute_value }} </p>
+                    {% if attribute_value == 'NULL' %}   /* cases when the entity could not be found */
+                        <p> ◆{{ attribute_name }}: not found in Wikidata. </p>
+                    {% else %}  
+                        <p> ◆{{ attribute_name }}: &nbsp{{ attribute_value }} </p>
+                    {% endif %}
                 {% endfor %} 
             </div>
             <div class="photo">
+                {% if kb_id != 'NULL' %}
                 <p><img src="..\static\images\{{kb_id}}.jpg" width="600" height="450"></p>
+                {% endif %}
             </div>
         </div>
 
