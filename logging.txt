@@ -1,0 +1,7 @@
+可以上传文件，可以post得到返回json并打印控制台
+
+myapp/views.py/doupload和mytestsite/views.py/index_out函数都调用模板output.html导致无法正常显示页面信息
+
+只能执行doupload，不执行index_out
+
+下一步修改：将doupload中json传给index_out统一传给模板显示
