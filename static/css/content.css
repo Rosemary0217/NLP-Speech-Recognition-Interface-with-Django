@@ -1,0 +1,26 @@
+.white_content {
+    max-width: 400px;
+    max-height: 400px;
+    padding: 5px;
+    /* background-color: rgb(249, 251, 181); */
+    background-color: #b7e9f0;
+    background-clip: border-box;
+    border: 1px solid rgb(0, 0, 0);
+    word-wrap:break-word;  
+    word-break:break-all;  
+}
+.move {
+    height: 20px;
+    /* background-color:   rgb(242, 221, 27); */
+    background-color: #2fb8cb;
+    font-family: fantasy;
+    text-align: center;
+    background-clip: border-box;
+    background-size: contain;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.move:hover {
+    cursor: move;
+}

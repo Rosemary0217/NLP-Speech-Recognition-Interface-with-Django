@@ -1,0 +1,138 @@
+.Button {
+    box-shadow: inset 0px 1px 0px 0px #bbdaf7;
+    background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    background-color: #79bbff;
+    border-radius: 6px;
+    border: 1px solid #84bbf3;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528ecc;
+}
+
+.Button:hover {
+    background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    background-color: #378de5;
+}
+
+.Button:active {
+    position: relative;
+    top: 1px;
+}
+.form{
+    text-align: center;
+}
+
+#wrap{
+    display: flex;justify-content: flex-start
+}
+
+ul.breadcrumb {
+    padding: 8px 16px;
+    list-style: none;
+    background-color: rgba(71, 99, 160, 0);
+}
+ul.breadcrumb li {
+    display: inline;
+}
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: rgb(0, 0, 0);
+    content: "/\00a0";
+}
+ul.breadcrumb li a {
+    color: rgb(24, 40, 136);
+}
+
+#box{
+    width: 250px;
+    height: 10px;
+    align-items: center;
+    /* left: 28%; */
+    /* margin-top: -5px; */
+    /* border: black 2px solid; */
+    position:relative;
+}
+#progress{
+    width: 0px;
+    height: 30px;
+    /* top: 200px; */
+    background: rgb(238, 193, 45);     
+}
+
+#n{
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+
+  
+.container{
+    position: relative;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.container .card{
+    margin-top: 100px;
+    position: relative;
+    max-width: 300px;
+    height: 215px;
+    background: #fff;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+    transition: .3s ease-in-out;
+}
+
+.container .card:hover{
+    height: 420px;
+}
+
+.container .card .imgBx{
+    position: relative;
+    width: 260px;
+    height: 260px;
+    top: -60px;
+    left: 20px;
+    z-index: 1;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.container .card .imgBx img{
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.container .card .content{
+    position: relative;
+    align-items: center;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+
+.container .card:hover .content{
+    visibility: visible;
+    opacity: 1;
+    margin-top: -40px;
+    transition-delay: .3s;
+}
+
+  

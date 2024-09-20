@@ -1,0 +1,38 @@
+.shell {
+    position: center;
+    align-items: center;
+    perspective: 3000px;
+    transform-style: preserve-3d;
+}
+
+.card {
+    height: 450px;
+    width: 600px;
+    transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+    background-color: rgba(250, 200, 30, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position :center;
+}
+
+.shell::before {
+    content: '';
+    height: 450px;
+    width: 600px;
+    position: absolute;
+    margin-top: -9px;
+    margin-left: -9px;
+    border: 5px solid rgba(236, 229, 229, 0.689);
+    transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+}
+
+.shell:hover>div,
+.shell:hover::before {
+    transform: none;
+}
+
+.shell>div,
+.shell::before {
+    transition: .3s;
+}
