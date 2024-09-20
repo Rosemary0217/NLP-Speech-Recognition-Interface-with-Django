@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解析结果</title>
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="../static/css/sitecss.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/3Dcard.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/windowcss.css">
+    <script type="text/javascript">
+        var data = {{ data | safe}};
+        var image_url = {{ img_src | safe}};
+    </script>
+    <script src="../static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../static/js/highlight.js"></script>
+
+    <style>
+        .box {
+            background-color: aliceblue;
+            position: absolute;
+            width: 80%;
+            height: 90%;
+            top: 13%;
+            left: 10%;
+            right: 10%;
+            border: 20px;
+            opacity:0.5;
+            z-index: -1;
+        }
+        .article{
+            margin-left: 12%;
+            margin-right: 12%;
+            margin-top: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文字内容 -->
+    <h1> 解析结果 </h1>
+    <div class="box"></div>
+    <div class="article">
+        <div id="article"></div>
+    </div>
+
+    <!-- 显示窗口，id为desc -->
+    <div id="descwin" style="display:none;" class="container">
+        <div class="move"></div>
+        <!-- 注释内容 -->
+        <div id="description" class="text"></div>
+        <br>
+        <div id="prompt" class="info">To find in WikiData:</div>
+        <div id="kb_id" class="info"></div>
+        <div id="url">
+            <span>◆url: </span>
+            <div id="wikidata_url" class="link"></div>
+        </div>
+        <div id="pic" class="picture"></div>
+        <br><a href="javascript:void(0)" onclick="hide();" class="close">close</a>
+    </div>
+
+</body>
+
+</html>
