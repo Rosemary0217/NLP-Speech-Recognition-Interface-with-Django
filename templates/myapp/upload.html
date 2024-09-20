@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/sitecss.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/upload.css">
+    <title>upload</title>
+</head>
+
+<body>
+    <!--上传表单-->
+
+    <ul  class="breadcrumb " style=" font-family: Arial;        font: size 20px;        font-weight: bold;">
+		<ul  class="breadcrumb">
+		    <li><a href="{% url 'index'%}">首页</a>
+		    </li>
+		    <li><a href="{% url 'upload'%}">上传</a>
+		    </li>	    
+		</ul>
+	</div>
+
+    <div class="container">
+        <div class="card">
+            <div class="imgBx">
+                <img src="/static/images/p1.png" alt="">
+            </div>
+            <div class="content">
+                <h2>上传文件</h2>
+                
+                <div style="float: inline-start;" class="form">
+                    <form action="{% url 'doupload'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!--post表单被服务器拦截，加入令牌-->
+                       <input  style="margin-left: 18%;" type="file" name="doc"><br></br>
+                        <input type="submit"  value="点击上传" class="Button">
+                    </form>
+                </div>   
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="imgBx">
+                <img src="/static/images/p2.png" alt="">
+            </div>
+            <div class="content">
+                <h2>录制音频</h2>
+                <form id="list" method="post" action="{% url 'settime'%}">
+                    {% csrf_token %}
+                    <div>
+                        <input id="text" type="text" name="mytime" placeholder="默认录音时长:3(秒)"/>
+                        <input type="submit" value="确定" onclick="function2()">
+                    </div>
+                </form>
+                <div id="box">  
+                    <p id="progress"></p>  
+                    <span id=n>&emsp;&emsp;&emsp;&emsp;0%</span>  
+                </div>
+                <br>
+                <div >
+                    <form action="{% url 'monitor'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %} 
+                        <input type="submit" id="btn" value="点击录音" class="Button"><x style="color: #ffffff;"></x>
+                     </form>
+                     <div style="color: red;">{{ start }}</div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var x1=10;
+    window.sum= {{ timeget }}
+    var progress = document.getElementById('progress')
+    var n = document.getElementById('n')
+    var btn = document.getElementById('btn')
+   
+    //定义函数，并用元素的单击事件触发函数
+    btn.onclick = function(){  
+        if(sum==undefined)
+        sum=3;
+        //alert(sum)
+      
+        var w = 0  //定义变量，用来存储进度条的长度
+
+        //启动定时器
+        var t = setInterval(function(){
+            w += 1   //每隔指定时间，让进度条长度增加10
+            if(w >= 100){   //判断进度条的长度有没有等于或大于指定长度
+                w = 100     
+                clearInterval(t)    //条件成立，清除定时器
+            }
+            progress.style.width = w + '%'   //给元素赋值变化后的宽度
+            n.innerHTML = w + '%'    //同时百分比也要增长
+        },10*sum)   //每隔0.1秒执行一次
+    }
+
+</script>
+</html>
